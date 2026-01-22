@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rninfosoft-flask-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: rninfosoft-flask
+  template:
+    metadata:
+      labels:
+        app: rninfosoft-flask
+    spec:
+      containers:
+      - name: flask
+        image: rninfosoft/flask-app:latest
+        ports:
+        - containerPort: 5000
+
